@@ -1,0 +1,22 @@
+inherit cmake
+
+NAME="usbmuxd"
+VERSION=1.0.8
+RELEASE=1
+CATEGORY="Libs"
+SUMMARY="USB multiplexing daemon library"
+DESCRIPTION="usbmuxd stands for USB multiplexing daemon. This daemon is in
+charge of multiplexing connections over USB to an iPhone or iPod touch.
+To users, it means you can sync your music, contacts, photos, etc. over USB.
+To developers, it means you can connect to any listening localhost socket on
+the device."
+HOMEPAGE="http://www.libimobiledevice.org/"
+SRC_URI="http://www.libimobiledevice.org/downloads/${NAME}-${VERSION}.tar.bz2"
+
+PKG_NAMES="${NAME} lib${NAME}2 lib${NAME}-devel"
+usbmuxd_CATEGORY="System"
+usbmuxd_SUMMARY=${SUMMARY% library}
+usbmuxd_CONTENTS="usr/bin/iproxy.exe usr/sbin/usbmuxd.exe usr/share/doc/"
+#libusbmuxd2_REQUIRES=${NAME}
+libusbmuxd2_CONTENTS="usr/bin/cygusbmuxd-2.dll"
+libusbmuxd_devel_CONTENTS="usr/include/ usr/lib/libusbmuxd.dll.a usr/lib/pkgconfig/"
