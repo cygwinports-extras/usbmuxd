@@ -1,0 +1,25 @@
+--- origsrc/usbmuxd-1.0.8/Modules/describe.sh	2012-04-07 17:50:09.000000000 -0500
++++ src/usbmuxd-1.0.8/Modules/describe.sh	2013-12-24 18:54:52.542798200 -0600
+@@ -1,5 +1,9 @@
+ #!/bin/bash
+ 
++# Check for version tag
++if [ -e version.tag ]; then
++	/bin/echo -n `cat version.tag`
++else
+ # Check for git and a git repo.
+ if head=`git rev-parse --verify HEAD 2>/dev/null`; then
+ 	/bin/echo -n `git describe`
+@@ -7,11 +11,7 @@ if head=`git rev-parse --verify HEAD 2>/
+ 	# Are there uncommitted changes?
+ 	git update-index --refresh --unmerged > /dev/null
+ 	git diff-index --quiet HEAD || /bin/echo -n -dirty
+-else
+-# Check for version tag
+-	if [ -e version.tag ]; then
+-		/bin/echo -n `cat version.tag`
+-	fi
++fi
+ fi
+ 
+ echo

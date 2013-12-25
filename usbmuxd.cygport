@@ -12,6 +12,7 @@ To developers, it means you can connect to any listening localhost socket on
 the device."
 HOMEPAGE="http://www.libimobiledevice.org/"
 SRC_URI="http://www.libimobiledevice.org/downloads/${NAME}-${VERSION}.tar.bz2"
+PATCH_URI="1.0.8-version-tag.patch"
 
 PKG_NAMES="${NAME} lib${NAME}2 lib${NAME}-devel"
 usbmuxd_CATEGORY="System"
